@@ -1,16 +1,16 @@
-const USER_ID = 'demo-user-123'; // Replace or make dynamic later
+const USER_ID = 'user-123'; 
 
 async function logMeal() {
   const query = document.getElementById('foodInput').value;
   if (!query) return alert("Please enter a food!");
 
-  // Fetch nutrition data
+  
   const response = await fetch(`/api/nutrition?query=${query}`);
   const data = await response.json();
 
   if (data.error) return alert(data.error);
 
-  // Display it
+
   document.getElementById('nutritionInfo').innerHTML = `
     <p><strong>${data.food}</strong> - ${data.calories} kcal</p>
     <ul>
@@ -27,7 +27,7 @@ async function logMeal() {
     body: JSON.stringify({ user_id: USER_ID, ...data })
   });
 
-  // Refresh chart
+
   getMeals();
 }
 
@@ -46,7 +46,7 @@ async function getMeals() {
 
 function drawChart(labels, calories, proteins, carbs, fats) {
   const ctx = document.getElementById('nutritionChart').getContext('2d');
-  if (window.myChart) window.myChart.destroy(); // Reset chart if exists
+  if (window.myChart) window.myChart.destroy(); 
 
   window.myChart = new Chart(ctx, {
     type: 'bar',

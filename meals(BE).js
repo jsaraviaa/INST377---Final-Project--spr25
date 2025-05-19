@@ -1,4 +1,4 @@
-// Vercel Serverless Function - GET and POST handler for meals
+
 import { createClient } from '@supabase/supabase-js';
 
 <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
